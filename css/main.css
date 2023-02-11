@@ -15,7 +15,9 @@ html {
 body {
     text-align: center;
     line-height: 1.5;
-    background-color: #272341;
+    /* background-color: #1f1c34; */
+    background-color: #1f1c34;
+
 }
 
 h1 {
@@ -49,7 +51,7 @@ a:hover {
 }
 
 .dark-blue-color {
-    color: #272341
+    color: #1f1c34
 }
 
 .text-color-main {
@@ -236,7 +238,7 @@ screen and (-ms-high-contrast: none) {
 
 .footer {
     /* background-color: #333; */
-    background-color: #272341;
+    background-color: #1f1c34;
     padding: 4.8rem 0
 }
 
@@ -396,12 +398,13 @@ section .row span {
 }
 
 #about {
-    background-color: #36d1dc;
-    background-image: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+    background-color: #1c93a2;
+    background-image: linear-gradient(135deg, #1c93a2 0%, #184a91 100%);
     color: #fff;
     height: 100%;
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-    padding-bottom: 10%
+    padding-bottom: 10%;
+
 }
 
 @media (max-width: 75em) {
@@ -463,7 +466,7 @@ section .row span {
 }
 
 #contact {
-    background-image: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+    background-image: linear-gradient(135deg, #1c93a2 0%, #184a91 100%);
 
     clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
     padding: 15rem 0 10rem 0;
@@ -511,7 +514,7 @@ section .row span {
     align-items: center;
     background: #fff;
     font-weight: 400;
-    color: #272341;
+    background-color: #1f1c34;
     padding: 0rem 5.6rem;
     top: 0;
     left: 0;
@@ -663,8 +666,8 @@ section .row span {
 
 #projects {
     /* background-color: #e5e5e5; */
-    background-color: #272341;
-    color: #272341;
+    background-color: #1f1c34;
+    color: #1f1c34;
     margin-top: -15rem;
     padding-top: 15rem
 }
@@ -779,6 +782,6 @@ section .row span {
 
 /* make backgroud dark 333333*/
 #hero {
-    background-color: #272341;
+    background-color: #1f1c34;
 
 }
