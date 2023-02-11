@@ -674,6 +674,7 @@ section .row span {
 
 @media (max-width: 75em) {
     #projects {
+
         margin-top: 0;
         padding-top: 5rem
     }
@@ -754,18 +755,15 @@ section .row span {
 
 @media (max-width: 75em) {
     #projects .project-wrapper__image {
+
         width: 100%;
         margin: 0
     }
 }
 
-#projects .project-wrapper__image .thumbnail {
-    border: none;
-    box-shadow: 8px 8px 9px 7px rgba(174, 174, 192, 0.4), -5px -5px 15px 7px #fff
-}
 
 #projects .project-wrapper__image .thumbnail .img-fluid {
-    width: 100%;
+    width: 20%;
     height: auto;
     vertical-align: middle;
     border-radius: 2px
