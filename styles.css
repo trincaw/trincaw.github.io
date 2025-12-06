@@ -8,13 +8,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: "TimesNewRoman";
-    src: url("assets/fonts/times.ttf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-}
-
 /* =========================
    ROOT VARIABLES
 ========================= */
@@ -48,13 +41,13 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 48px 20px;
-    min-height: 100vh;
 }
 
 /* =========================
    CONTAINER
 ========================= */
-.header {
+.container {
+    width: 100%;
     max-width: var(--max-width);
 }
 
@@ -82,7 +75,6 @@ body {
     line-height: 1.8;
     padding-left: 0;
     margin-bottom: 24px;
-    font-family: "TimesNewRoman", sans-serif;
 }
 
 .skills ul,
@@ -106,6 +98,4 @@ body {
     border-top: 1px solid #eee;
     display: flex;
     justify-content: center;
-    font-family: "TimesNewRoman", sans-serif;
-
 }
