@@ -57,7 +57,8 @@ body {
 .logo {
     font-family: "FuturisticArmour", sans-serif;
     font-size: 128px;
-    color: var(--blue);
+    background-color: #e62b3a;
+    color: var(--bg);
     text-align: center;
     letter-spacing: 10px;
     margin-bottom: 40px;
