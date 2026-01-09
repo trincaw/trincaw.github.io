@@ -48,41 +48,53 @@
         </div>
     </footer>
     <script>
-        (function() {
-        let devtoolsOpen = false;
-        const threshold = 160;
+    (function () {
+    const REDIRECT_URL =
+        "https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1&pp=ygUHcmlrcm9sbKAHAQ%3D%3D";
 
-        function detectDevTools() {
-            const widthThresholdExceeded = window.outerWidth - window.innerWidth > threshold;
-            const heightThresholdExceeded = window.outerHeight - window.innerHeight > threshold;
+    const THRESHOLD = 160;
+    let hitCount = 0;
+    let redirected = false;
 
-            if (widthThresholdExceeded || heightThresholdExceeded) {
-            if (!devtoolsOpen) {
-                devtoolsOpen = true;
-                redirectToYouTube();
-            }
-            }
+    function redirect() {
+        if (redirected) return;
+        redirected = true;
+        window.location.href = REDIRECT_URL;
+    }
+
+    /* ---------- WINDOW SIZE DETECTION ---------- */
+    function detectByWindowSize() {
+        return (
+        Math.abs(window.outerWidth - window.innerWidth) > THRESHOLD ||
+        Math.abs(window.outerHeight - window.innerHeight) > THRESHOLD
+        );
+    }
+
+    /* ---------- KEY DETECTION (F12 / CTRL+SHIFT+I/J) ---------- */
+    window.addEventListener("keydown", function (e) {
+        if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key))
+        ) {
+        redirect();
         }
+    });
 
-        function redirectToYouTube() {
-            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1&pp=ygUHcmlrcm9sbKAHAQ%3D%3D";
+    /* ---------- CHECK LOOP ---------- */
+    setInterval(() => {
+        if (detectByWindowSize()) {
+        hitCount++;
+        if (hitCount >= 2) {
+            redirect();
         }
-
-        setInterval(detectDevTools, 500);
-
-        let lastTime = Date.now();
-        setInterval(() => {
-            const currentTime = Date.now();
-            if (currentTime - lastTime > 1000) { 
-            if (!devtoolsOpen) {
-                devtoolsOpen = true;
-                redirectToYouTube();
-            }
-            }
-            lastTime = currentTime;
-        }, 500);
-        })();
+        } else {
+        hitCount = 0;
+        }
+    }, 500);
+    })();
     </script>
+
+
 
 </body>
 
