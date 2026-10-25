@@ -1,102 +1,606 @@
-/* =========================
-   FONTS
-========================= */
+/* =========================================================================
+   TRINCA — brutalist minimal
+   Type, whitespace, one red accent. No borders, no frames, no shadows.
+   Shared by the home page, writing index and articles.
+   ========================================================================= */
+
 @font-face {
     font-family: "FuturisticArmour";
     src: url("assets/fonts/FuturisticArmour.otf") format("opentype");
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 
-/* =========================
-   ROOT VARIABLES
-========================= */
 :root {
-    --bg: #ffffff;
-    --blue: #0051ff;
-    --text: #111111;
-    --max-width: 820px;
+    --paper: #f4f2ea;
+    --paper-2: #eae6db;
+    --ink: #111110;
+    --signal: #e62b3a;
+    --signal-text: #c81e2b;
+    --muted: #6c685e;
+    --max: 1080px;
+    --gutter: clamp(20px, 5vw, 64px);
+
+    --sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    --display: "FuturisticArmour", "Arial Narrow", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 }
 
-/* =========================
-   GLOBAL RESET
-========================= */
-* {
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-html,
-body {
-    height: 100%;
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
 }
 
 body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: clamp(24px, 5vw, 64px) var(--gutter);
+    background: var(--paper);
+    color: var(--ink);
+    font: 17px/1.6 var(--sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+}
+
+::selection {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+:focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 4px;
+}
+
+.skip {
+    position: absolute;
+    top: -100px;
+    left: 12px;
+    z-index: 100;
+    padding: 10px 14px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.skip:focus {
+    top: 12px;
+}
+
+.page {
+    width: 100%;
+    max-width: var(--max);
+    margin: 0 auto;
+}
+
+/* =========================================================================
+   MASTHEAD
+   ========================================================================= */
+.masthead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px 32px;
+    margin-bottom: clamp(72px, 12vw, 140px);
+}
+
+.brand {
+    font-family: var(--display);
+    font-size: 26px;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 4px 20px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+}
+
+.nav a {
+    text-decoration: none;
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* =========================================================================
+   HOME
+   ========================================================================= */
+.role {
+    margin: 0 0 clamp(18px, 3vw, 28px);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.wordmark {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 48px 20px;
+    align-items: flex-start;
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(3.6rem, 14vw, 11rem);
+    font-weight: 400;
+    line-height: 0.78;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
-/* =========================
-   CONTAINER
-========================= */
-.container {
-    width: 100%;
-    max-width: var(--max-width);
+.wordmark-line {
+    display: block;
 }
 
-/* =========================
-   LOGO
-========================= */
-.logo {
-    font-family: "FuturisticArmour", sans-serif;
-    font-size: 128px;
-    background-color: #e62b3a;
-    color: var(--bg);
-    text-align: center;
-    letter-spacing: 10px;
-    margin-bottom: 40px;
-    line-height: 1;
+.wordmark-line + .wordmark-line {
+    margin-left: clamp(18px, 10vw, 150px);
 }
 
-/* =========================
-   SKILLS & CONTACTS
-========================= */
-.skills,
-.contact-info {
+.wordmark-stop {
+    display: inline-block;
+    width: 0.14em;
+    height: 0.14em;
+    margin-left: 0.08em;
+    background: var(--signal);
+}
+
+.lede {
+    max-width: 46ch;
+    margin: clamp(28px, 5vw, 52px) 0 0;
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    line-height: 1.45;
+    text-wrap: pretty;
+}
+
+.index {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 8vw, 120px);
+    margin-top: clamp(72px, 12vw, 140px);
+}
+
+.index h2 {
+    margin: 0 0 18px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.plain-list {
+    margin: 0;
+    padding: 0;
     list-style: none;
-    text-align: center;
-    font-size: 18px;
-    line-height: 1.8;
-    padding-left: 0;
-    margin-bottom: 24px;
+    font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+    line-height: 2;
 }
 
-.skills ul,
-.contact-info ul {
+.contact-list a {
+    text-decoration: underline;
+    text-decoration-color: rgba(17, 17, 16, 0.25);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    overflow-wrap: anywhere;
+}
+
+.contact-list a:hover {
+    color: var(--signal-text);
+    text-decoration-color: currentColor;
+}
+
+.writing-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: clamp(16px, 3vw, 32px);
+    margin-top: clamp(80px, 12vw, 150px);
+    font-family: var(--display);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 0.9;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.writing-link .arrow {
+    color: var(--signal);
+    font-family: var(--sans);
+    font-size: 0.55em;
+}
+
+.writing-link:hover {
+    color: var(--signal-text);
+}
+
+.writing-link:hover .arrow {
+    color: var(--signal-text);
+}
+
+/* =========================================================================
+   WRITING INDEX
+   ========================================================================= */
+.intro h1,
+.post-header h1 {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(3rem, 9vw, 7.5rem);
+    font-weight: 400;
+    line-height: 0.85;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.intro h1::after,
+.post-header h1::after {
+    content: "";
+    display: inline-block;
+    width: 0.14em;
+    height: 0.14em;
+    margin-left: 0.08em;
+    background: var(--signal);
+}
+
+.intro .lede {
+    max-width: 54ch;
+    color: var(--ink);
+}
+
+.archive {
+    max-width: 900px;
+    margin-top: clamp(64px, 10vw, 120px);
+}
+
+.section-label {
+    margin: 0 0 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.post-list {
+    margin: 0;
+    padding: 0;
     list-style: none;
 }
 
-.skills li,
-.contact-info li {
-    padding: 4px 0;
+.post-list li + li {
+    margin-top: clamp(28px, 4vw, 44px);
 }
 
-/* =========================
-   FOOTER
-========================= */
-.site-footer {
-    width: 100%;
-    max-width: var(--max-width);
-    margin-top: 40px;
-    padding-top: 18px;
-    border-top: 1px solid #eee;
+.post-row {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.post-title {
+    font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    transition: color 80ms linear;
+}
+
+.post-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.post-row:hover .post-title {
+    color: var(--signal);
+}
+
+/* =========================================================================
+   ARTICLE
+   ========================================================================= */
+.post-header {
+    margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.post-header h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+}
+
+.post-meta {
+    margin: 24px 0 0;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.post-body {
+    max-width: 66ch;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+.post-body > p {
+    margin: 0;
+}
+
+.post-body > p + p {
+    margin-top: 24px;
+}
+
+.post-body > p:first-child {
+    font-size: clamp(1.15rem, 1.8vw, 1.3rem);
+    line-height: 1.55;
+}
+
+.post-body h2 {
+    margin: 60px 0 16px;
+    font-size: clamp(1.4rem, 2.2vw, 1.7rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.post-body h3 {
+    margin: 36px 0 10px;
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+
+.post-body ul,
+.post-body ol {
+    margin: 24px 0;
+    padding-left: 24px;
+}
+
+.post-body li + li {
+    margin-top: 8px;
+}
+
+.post-body a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.post-body a:hover {
+    color: var(--signal-text);
+}
+
+.post-body strong {
+    font-weight: 700;
+}
+
+.post-body blockquote {
+    margin: 40px 0;
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+    font-style: italic;
+    line-height: 1.45;
+}
+
+.post-body blockquote p {
+    margin: 0;
+}
+
+.post-body blockquote p + p {
+    margin-top: 14px;
+}
+
+.post-body code {
+    padding: 2px 5px;
+    background: var(--paper-2);
+    font-family: var(--mono);
+    font-size: 0.9em;
+}
+
+.post-body pre {
+    margin: 32px 0;
+    padding: 20px;
+    overflow-x: auto;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 13.5px;
+    line-height: 1.6;
+}
+
+.post-body pre code {
+    padding: 0;
+    background: none;
+    font-size: inherit;
+}
+
+.post-body img {
+    height: auto;
+}
+
+.post-body hr {
+    height: 0;
+    margin: 48px 0;
+    border: 0;
+}
+
+.post-body table {
+    width: 100%;
+    margin: 32px 0;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.post-body th,
+.post-body td {
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.post-body th {
+    font-weight: 700;
+}
+
+.post-body tbody tr:nth-child(even) {
+    background: var(--paper-2);
+}
+
+.post-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px 24px;
+    margin-top: clamp(64px, 10vw, 120px);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.post-nav a {
+    text-decoration: none;
+}
+
+.post-nav a:hover {
+    color: var(--signal-text);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* =========================================================================
+   COLOPHON
+   ========================================================================= */
+.colophon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
+    margin-top: clamp(80px, 12vw, 150px);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.colophon p {
+    margin: 0;
+}
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media (max-width: 760px) {
+    .masthead {
+        flex-wrap: wrap;
+        margin-bottom: 72px;
+    }
+
+    .nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 4px 16px;
+    }
+
+    .index {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .wordmark {
+        font-size: clamp(3.4rem, 15vw, 7rem);
+    }
+
+    .post-body {
+        font-size: 17px;
+    }
+
+    .post-body pre {
+        margin-inline: -20px;
+        padding-inline: 20px;
+    }
+}
+
+@media (max-width: 420px) {
+    .brand {
+        font-size: 23px;
+    }
+
+    .wordmark {
+        font-size: clamp(3rem, 16vw, 4rem);
+    }
+
+    .wordmark-line + .wordmark-line {
+        margin-left: 18px;
+    }
+
+    .writing-link {
+        font-size: clamp(2.6rem, 13vw, 3.6rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================================================
+   PRINT
+   ========================================================================= */
+@media print {
+    body {
+        padding: 0;
+        background: #fff;
+    }
+
+    .masthead,
+    .post-nav,
+    .colophon,
+    .skip,
+    .writing-link {
+        display: none;
+    }
+
+    .post-body {
+        max-width: none;
+    }
 }

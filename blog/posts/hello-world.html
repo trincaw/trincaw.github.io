@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Why this space exists, and what I plan to write about." />
+    <title>Hello, world — Nicolo Trinca</title>
+
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <div class="page">
+        <header class="masthead">
+            <a class="brand" href="../../index.html">Nicolo Trinca</a>
+
+            <nav class="nav" aria-label="Primary">
+                <a href="../index.html" aria-current="page">Write ups</a>
+                <a href="mailto:nicoloxtrinca@gmail.com">Email</a>
+                <a href="https://github.com/trincaw" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/nicolo-trinca/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+            </nav>
+        </header>
+
+        <main id="main">
+            <article class="post">
+                <header class="post-header">
+                        <h1>Hello, world</h1>
+                    <p class="post-meta">
+                        <time datetime="2026-10-25">25 Oct 2026</time>
+                        <span aria-hidden="true">—</span>
+                        <span>3 min read</span>
+                    </p>
+                </header>
+
+                <div class="post-body">
+                    <p>This is the first post on a site that, until now, was just a name and a list of things I know how
+                        to do. I wanted a place to think in public, away from feeds and timelines, about the work that
+                        takes up most of my days: backend systems and the infrastructure underneath them.</p>
+
+                    <p>No newsletter popup. No reading progress bar. Just text, hyperlinks, and the occasional code
+                        block.</p>
+
+                    <h2>What goes here</h2>
+
+                    <p>I plan to write about the parts of engineering that are easy to get wrong and hard to learn from
+                        a tutorial:</p>
+
+                    <ul>
+                        <li>Backend design decisions, and the trade-offs I only understood later.</li>
+                        <li>Cloud architecture and infrastructure as code, including the failure modes.</li>
+                        <li>Debugging notes — the kind that save someone an afternoon.</li>
+                        <li>Small tools and habits that make systems easier to operate.</li>
+                    </ul>
+
+                    <h2>Writing to think</h2>
+
+                    <p>A design only feels finished once I have tried to explain it. Writing forces that test. If a
+                        paragraph needs three caveats to survive, the design probably needs another look.</p>
+
+                    <blockquote>
+                        <p>The best documentation is the kind you write for yourself six months from now.</p>
+                    </blockquote>
+
+                    <p>For example, most production issues I have seen reduce to something like this:</p>
+
+                    <pre><code>curl -sS -o /dev/null -w "%{http_code} %{time_total}s\n" \
+  https://example.com/health</code></pre>
+
+                    <p>Boring, repeatable checks beat clever dashboards when something is on fire.</p>
+
+                    <h2>How this works</h2>
+
+                    <p>This blog is static HTML and one stylesheet. There is no framework, no build step, and no
+                        database. Adding a post means copying a template, writing the content, and adding one line to
+                        the index. That is a feature, not a limitation.</p>
+
+                    <p>More soon.</p>
+                </div>
+
+                <nav class="post-nav" aria-label="Write up navigation">
+                    <a href="../index.html">← All write ups</a>
+                    <a href="../../index.html">Home →</a>
+                </nav>
+            </article>
+        </main>
+
+        <footer class="colophon">
+            <p>© 2026 Nicolo Trinca</p>
+            <p>Static HTML / No build step</p>
+        </footer>
+    </div>
+</body>
+
+</html>
