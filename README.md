@@ -10,7 +10,7 @@ styles.css              one stylesheet for every page
 blog/
   index.html            write up index (newest first)
   posts/
-    hello-world.html    example write up
+    the-dream-machine.html    first write up
     template.html       copy this to start a new write up
 ```
 

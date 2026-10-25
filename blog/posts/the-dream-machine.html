@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="What happens when computers stop running programs and start predicting them?" />
+    <title>The Dream Machine — Nicolo Trinca</title>
+
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <div class="page">
+        <header class="masthead">
+            <a class="brand" href="../../index.html">Nicolo Trinca</a>
+
+            <nav class="nav" aria-label="Primary">
+                <a href="../index.html" aria-current="page">Write ups</a>
+                <a href="mailto:nicoloxtrinca@gmail.com">Email</a>
+                <a href="https://github.com/trincaw" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/nicolo-trinca/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+            </nav>
+        </header>
+
+        <main id="main">
+            <article class="post">
+                <header class="post-header">
+                    <h1>The Dream Machine</h1>
+                    <p class="post-meta">
+                        <time datetime="2026-10-25">25 Oct 2026</time>
+                        <span aria-hidden="true">—</span>
+                        <span>4 min read</span>
+                    </p>
+                </header>
+
+                <div class="post-body">
+                    <p><em>What happens when computers stop running programs and start predicting them?</em></p>
+
+                    <p>Open any modern game and you’re looking at a tower of machinery. There’s a game engine on top of
+                        an operating system, a kernel beneath that, dozens of background processes, and a GPU doing
+                        brutal arithmetic to paint pixels that live on screen for a fraction of a second. The whole
+                        stack exists to fake a world that only has to feel right.</p>
+
+                    <p>A growing number of researchers are asking whether that tower is necessary. Prototypes already
+                        exist: Google’s GameNGen ran a playable version of Doom entirely from a diffusion model, with no
+                        game engine behind it. Other systems generate interactive worlds from a text prompt. They’re
+                        crude, slow and expensive today, but they point at something strange. The software isn’t
+                        executed. It’s predicted, frame by frame, from what you just did.</p>
+
+                    <p>Now assume the cost problem is solved. Distilled models, in-memory compute and purpose-built
+                        silicon make a neural frame cheaper than a rasterized one. What does a computer look like then?</p>
+
+                    <h2>One model, fixed load</h2>
+
+                    <p>The hardware runs a single large model, and its workload is almost constant. A quiet menu and a
+                        chaotic battle cost roughly the same, give or take the variation in how many neurons activate.
+                        There’s no process scheduler juggling competing apps, because there are no apps. There are only
+                        intentions, and the model’s running guess at what you want to see next.</p>
+
+                    <h2>Software as a short-lived thought</h2>
+
+                    <p>Ask for a tool and the system generates only the code that task needs, streams it into execution,
+                        then discards it. A unit converter doesn’t ship with a settings page, an updater or a login
+                        screen. It exists for as long as you need it, optimized for exactly one job.</p>
+
+                    <h2>Precision as a dial</h2>
+
+                    <p>This is where the design gets interesting. A game can be loose: a blade of grass in slightly the
+                        wrong place hurts no one. A calculator or a bank ledger cannot. So the system needs a tolerance
+                        setting, running fluid and approximate for a game and nearly exact for arithmetic. Engineers
+                        borrow a mindset from quantum computing here, where error isn’t eliminated but budgeted and
+                        corrected. Concretely, the model would likely lean on error-correcting checks, redundant
+                        sampling and verification passes, spending more compute when the stakes rise.</p>
+
+                    <h2>A thin deterministic core</h2>
+
+                    <p>Even in this future, something has to remember things. Saved games, files and balances can’t live
+                        in a model’s fuzzy recall, or the room behind you will quietly rearrange itself when you turn
+                        around. Expect a minimal layer of exact storage and security underneath, far smaller than
+                        today’s operating systems but not zero. The dream needs a floor to stand on.</p>
+
+                    <h2>The cloud changes most</h2>
+
+                    <p>Today a provider rents you a virtual machine, complete with its own OS and idle overhead. In this
+                        future, a single hosted model serves thousands of users at once, each a lightweight,
+                        personalized stream, much as LLM servers already batch many conversations through one set of
+                        weights. Hosting stops being about slicing hardware into machines and becomes about sharing one
+                        imagination across many people.</p>
+
+                    <h2>What’s still missing</h2>
+
+                    <p>None of this arrives soon. Precision, persistence and security are real open problems, and
+                        debugging software that is invented fresh every time is a puzzle nobody has solved. But the
+                        direction is hard to ignore: less executing, more predicting.</p>
+
+                    <p>Someday, the question about your computer may not be “what is it running?” but “what is it
+                        dreaming?”</p>
+                </div>
+
+                <nav class="post-nav" aria-label="Write up navigation">
+                    <a href="../index.html">← All write ups</a>
+                    <a href="../../index.html">Home →</a>
+                </nav>
+            </article>
+        </main>
+
+        <footer class="colophon">
+            <p>© 2026 Nicolo Trinca</p>
+            <p>Static HTML / No build step</p>
+        </footer>
+    </div>
+</body>
+
+</html>
