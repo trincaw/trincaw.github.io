@@ -7,6 +7,7 @@ Personal site — static HTML and CSS, no build step.
 ```
 index.html              home page
 styles.css              one stylesheet for every page
+assets/analytics.js     Cloudflare Web Analytics loader, loaded by every page
 assets/rickroll.js      devtools detector, loaded by every page
 blog/
   index.html            write up index (newest first)
