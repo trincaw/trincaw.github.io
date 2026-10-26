@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="Your computer might stop running software. It might start imagining it." />
+    <meta name="description" content="What if your computer stopped running software and started imagining it?" />
     <title>The Dream Machine — Nicolo Trinca</title>
 
     <link rel="stylesheet" href="../../styles.css">
@@ -35,86 +35,69 @@
                     <p class="post-meta">
                         <time datetime="2026-10-25">25 Oct 2026</time>
                         <span aria-hidden="true">—</span>
-                        <span>5 min read</span>
+                        <span>3 min read</span>
                     </p>
                 </header>
 
                 <div class="post-body">
-                    <p><em>Your computer might stop running software. It might start imagining it.</em></p>
+                    <p><em>What if your computer stopped running software and started imagining it?</em></p>
 
-                    <p>In 2024, Google researchers got a neural network to play Doom. There was no game engine, no level
-                        files and no code. The model looked at what you had just done, guessed what the screen should
-                        show next, and painted it. Tens of times a second, it dreamed the game into existence.</p>
+                    <p>In 2024, Google researchers got a neural network to play Doom. No engine, no level files, no
+                        code. The model watched what you did, guessed what the screen should show next, and painted it,
+                        frame by frame.</p>
 
-                    <p>It was crude and expensive, and it fell apart if you looked at it wrong. But it raises a question
-                        that gets stranger the longer you sit with it: what if the tower we’ve spent fifty years
-                        building is optional?</p>
+                    <p>It was crude and expensive. But it made me wonder whether the tower we’ve spent fifty years
+                        building is optional.</p>
 
-                    <h2>The tower we take for granted</h2>
+                    <h2>The tower</h2>
 
-                    <p>Every game you’ve played sits on a mountain of machinery. An engine runs on an operating system,
-                        which runs on a kernel, which juggles dozens of background processes while a GPU grinds through
-                        brutal arithmetic to paint pixels that last a fraction of a second. All of that exists to fake a
-                        world that only has to feel right.</p>
+                    <p>Every game sits on a mountain of machinery: an engine, an operating system, a kernel, a swarm of
+                        background processes, and a GPU doing brutal arithmetic to paint pixels that last a fraction of
+                        a second. All of it exists to fake a world that only has to feel right.</p>
 
-                    <p>So assume the cost problem gets solved, through distilled models, in-memory compute and
-                        purpose-built silicon, until a neural frame is cheaper than a rasterized one. What does a
-                        computer look like then?</p>
+                    <p>Now suppose a neural frame becomes cheaper than a rasterized one. What does a computer look like
+                        then?</p>
 
-                    <h2>One model, one steady hum</h2>
+                    <h2>One model, one hum</h2>
 
-                    <p>The hardware runs a single enormous model, and its workload barely changes. A quiet menu and a
-                        chaotic boss fight cost almost the same, give or take how many neurons fire. There’s no scheduler
-                        refereeing between apps, because there are no apps. There are only your intentions and the
-                        model’s running guess at what you want to see next.</p>
+                    <p>It runs a single large model under a nearly constant load. A quiet menu and a chaotic boss fight
+                        cost about the same. There’s no scheduler, because there are no apps, only your intent and the
+                        model’s guess at what you want next.</p>
 
                     <h2>Software that lives for ten seconds</h2>
 
-                    <p>Say you need a unit converter. The system writes exactly the code that task requires, runs it and
-                        throws it away. There’s no settings page, no updater and no login screen, just a tool that exists
-                        for as long as you need it and does one job perfectly.</p>
+                    <p>You need a unit converter, so the machine writes exactly that, runs it, and throws it away. No
+                        settings page, no updater, no login. Software stops being something you install and becomes
+                        something you summon.</p>
 
-                    <p>Software stops being something you install and becomes something you summon, like a thought.</p>
+                    <h2>Precision as a dial</h2>
 
-                    <h2>Precision becomes a dial</h2>
+                    <p>A misplaced blade of grass hurts no one. A wrong digit in a bank ledger does. So the machine
+                        needs a tolerance setting: loose for play, near-exact for arithmetic. Like quantum computing, it
+                        wouldn’t eliminate error but budget it, spending more checks and verification as the stakes
+                        rise.</p>
 
-                    <p>Here’s where it gets tricky. In a game, a blade of grass in the wrong place hurts no one. In a
-                        bank ledger, a wrong digit is a disaster.</p>
+                    <h2>The floor</h2>
 
-                    <p>So the machine needs a tolerance setting: loose and fluid for play, nearly exact for arithmetic.
-                        Engineers borrow a mindset from quantum computing, where errors aren’t eliminated but budgeted
-                        and corrected. In practice that means error-correcting checks, redundant sampling and
-                        verification passes, with the system spending more compute as the stakes rise.</p>
+                    <p>Your saves, files and balances can’t live in fuzzy memory, or the room behind you will quietly
+                        rearrange itself when you turn around. Expect a thin layer of exact storage and security
+                        underneath, far smaller than today’s operating systems, but not zero. Even a dream needs a
+                        floor.</p>
 
-                    <p>Precision stops being a property of the hardware and becomes something you pay for, moment by
-                        moment.</p>
+                    <h2>The cloud, reimagined</h2>
 
-                    <h2>The floor beneath the dream</h2>
-
-                    <p>Even a dreaming machine needs something solid. Your saved game, your files and your account
-                        balance can’t live in a model’s fuzzy memory, or the room behind you will quietly rearrange
-                        itself when you turn around. Expect a thin layer of exact, deterministic storage and security
-                        underneath: far smaller than today’s operating systems, but not zero. The dream needs a floor to
-                        stand on.</p>
-
-                    <h2>Where the cloud gets weird</h2>
-
-                    <p>Today, a provider rents you a virtual machine, a private slice of hardware with its own OS and its
-                        own idle overhead. In this future, one hosted model serves thousands of people at once, each
-                        getting a lightweight, personalised stream. LLM servers already do a version of this, pushing
-                        many conversations through a single set of weights. Hosting stops being about carving up
-                        hardware and becomes about sharing one imagination across many minds.</p>
+                    <p>Today a provider rents you a virtual machine with its own OS and idle overhead. Here, one hosted
+                        model serves thousands of people at once, each with a personal stream, much as LLM servers
+                        already push many conversations through one set of weights. Hosting becomes sharing one
+                        imagination across many minds.</p>
 
                     <h2>The catch</h2>
 
-                    <p>None of this is arriving soon. Precision, persistence and security are real, unsolved problems.
-                        And debugging software that is invented fresh every time may be the strangest puzzle of all,
-                        because how do you fix a bug that never happens the same way twice?</p>
+                    <p>None of this is close. Precision, persistence and security are unsolved, and debugging software
+                        that is invented fresh each time is a puzzle I can’t even picture. But the direction is hard to
+                        ignore: less executing, more predicting.</p>
 
-                    <p>But the direction is hard to ignore. Computing has spent its whole history getting better at
-                        executing. The next chapter may be about predicting.</p>
-
-                    <p>So someday, the question about your computer may not be “What is it running?”</p>
+                    <p>Someday, the question about your computer may not be “What is it running?”</p>
 
                     <p>It may be: “What is it dreaming?”</p>
                 </div>
