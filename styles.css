@@ -20,6 +20,7 @@
     --muted: #6c685e;
     --max: 1080px;
     --gutter: clamp(20px, 5vw, 64px);
+    --gutter-y: clamp(24px, 5vh, 64px);
 
     --sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
     --display: "FuturisticArmour", "Arial Narrow", Arial, sans-serif;
@@ -44,7 +45,8 @@ html {
 
 body {
     margin: 0;
-    padding: clamp(24px, 5vw, 64px) var(--gutter);
+    min-height: 100dvh;
+    padding: var(--gutter-y) var(--gutter);
     background: var(--paper);
     color: var(--ink);
     font: 17px/1.6 var(--sans);
@@ -81,6 +83,8 @@ img {
     color: var(--paper);
     font-family: var(--mono);
     font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     text-decoration: none;
 }
 
@@ -91,7 +95,10 @@ img {
 .page {
     width: 100%;
     max-width: var(--max);
+    min-height: calc(100dvh - 2 * var(--gutter-y));
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 /* =========================================================================
@@ -102,7 +109,7 @@ img {
     align-items: baseline;
     justify-content: space-between;
     gap: 16px 32px;
-    margin-bottom: clamp(72px, 12vw, 140px);
+    margin-bottom: clamp(40px, 8vh, 96px);
 }
 
 .brand {
@@ -113,35 +120,48 @@ img {
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
+    transition: color 120ms ease;
+}
+
+.brand:hover {
+    color: var(--signal-text);
 }
 
 .nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    gap: 4px 20px;
+    gap: 6px 24px;
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--muted);
 }
 
 .nav a {
     text-decoration: none;
+    transition: color 120ms ease;
 }
 
 .nav a:hover,
 .nav a[aria-current="page"] {
-    color: var(--ink);
+    color: var(--signal-text);
     text-decoration: underline;
+    text-decoration-thickness: 1px;
     text-underline-offset: 4px;
 }
 
 /* =========================================================================
-   HOME
+   MAIN / HERO & INDEX
    ========================================================================= */
+#main {
+    margin-block: auto;
+    padding-block: clamp(24px, 4vh, 48px);
+}
+
 .role {
-    margin: 0 0 clamp(18px, 3vw, 28px);
+    margin: 0 0 clamp(16px, 2.5vw, 24px);
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.08em;
@@ -183,7 +203,7 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: clamp(40px, 8vw, 120px);
-    margin-top: clamp(72px, 12vw, 140px);
+    margin-top: clamp(48px, 8vw, 96px);
 }
 
 .index h2 {
@@ -200,8 +220,11 @@ img {
     margin: 0;
     padding: 0;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.4vw, 16px);
     font-size: clamp(1.15rem, 1.8vw, 1.45rem);
-    line-height: 2;
+    line-height: 1.35;
 }
 
 .contact-list a {
@@ -210,6 +233,7 @@ img {
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
     overflow-wrap: anywhere;
+    transition: color 120ms ease, text-decoration-color 120ms ease;
 }
 
 .contact-list a:hover {
@@ -225,10 +249,11 @@ img {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 8px 24px;
-    margin-top: clamp(80px, 12vw, 150px);
+    margin-top: auto;
+    padding-top: clamp(48px, 8vh, 96px);
     font-family: var(--mono);
     font-size: 10px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
 }
@@ -243,18 +268,19 @@ img {
 @media (max-width: 760px) {
     .masthead {
         flex-wrap: wrap;
-        margin-bottom: 72px;
+        margin-bottom: 48px;
     }
 
     .nav {
         width: 100%;
         justify-content: flex-start;
-        gap: 4px 16px;
+        gap: 6px 18px;
     }
 
     .index {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 40px;
+        margin-top: clamp(40px, 10vw, 64px);
     }
 
     .wordmark {
